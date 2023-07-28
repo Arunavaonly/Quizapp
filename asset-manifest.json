@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/quizapp/static/css/main.0f87334d.css",
+    "main.js": "/quizapp/static/js/main.30c7f505.js",
+    "static/js/787.82d36865.chunk.js": "/quizapp/static/js/787.82d36865.chunk.js",
+    "static/media/karla-latin-700-normal.woff": "/quizapp/static/media/karla-latin-700-normal.940e802b7238464bc33d.woff",
+    "static/media/karla-latin-400-normal.woff": "/quizapp/static/media/karla-latin-400-normal.1c2f33c5e5e2ac899e6c.woff",
+    "static/media/karla-latin-700-normal.woff2": "/quizapp/static/media/karla-latin-700-normal.7e0b881d89bb036cdc7c.woff2",
+    "static/media/karla-latin-400-normal.woff2": "/quizapp/static/media/karla-latin-400-normal.93d013a97f8b0389ff8f.woff2",
+    "static/media/karla-latin-ext-700-normal.woff": "/quizapp/static/media/karla-latin-ext-700-normal.142f0b39bf7326ea05f1.woff",
+    "static/media/karla-latin-ext-400-normal.woff": "/quizapp/static/media/karla-latin-ext-400-normal.e2d6e0741f501954a188.woff",
+    "static/media/karla-latin-ext-700-normal.woff2": "/quizapp/static/media/karla-latin-ext-700-normal.d073cd1b0f8a30a2f619.woff2",
+    "static/media/karla-latin-ext-400-normal.woff2": "/quizapp/static/media/karla-latin-ext-400-normal.9638972f7e0d40eb6343.woff2",
+    "index.html": "/quizapp/index.html",
+    "main.0f87334d.css.map": "/quizapp/static/css/main.0f87334d.css.map",
+    "main.30c7f505.js.map": "/quizapp/static/js/main.30c7f505.js.map",
+    "787.82d36865.chunk.js.map": "/quizapp/static/js/787.82d36865.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f87334d.css",
+    "static/js/main.30c7f505.js"
+  ]
+}
