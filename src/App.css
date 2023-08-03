@@ -1,38 +1,175 @@
-.App {
+*{
+  background-color: #b1bcd3;
+}
+
+.center-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.App-header {
+  width: 412px;
+  height: 41px;
+  color: #293264;
+  text-align: center;
+  font-family: Karla;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn{
+  width: 193px;
+  height: 52px;
+  border-radius: 15px;
+  background: #25347e;
+  color: #d0dde3;
+  cursor: pointer;
+  margin-top: 30px;
+  font-family: karla;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.next-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.btn-ans{
+  margin: 10px 8px;
+  margin-left: 0px;
+  margin-right: 20px;
+  border-radius: 9px;
+  min-width: 90px;
+  cursor: pointer;
+}
+
+.question{
+  padding:30px;
+  outline-width: 10px;
+  outline-style: groove;
+  outline-color: #4D5B9E;
+
+}
+.para{
+  color: rgb(15, 7, 102);
+  white-space: pre-wrap;
+  font-size: larger;
+
+}
+
+.red-button{
+  background-color:rgb(250, 9, 9);
+}
+.green-button{
+  background-color: rgb(4, 250, 4);
+}
+
+.nav {
+  padding-left: 20px;
+  padding-right: 20px; /* Add right padding for better spacing */
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add styles for the overlay */
+.level-up-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of other content */
+}
+
+.level-up-overlay img {
+  width: 50%;
+  height: 50%;
+}
+.level{
+  font-family: karla;
+  font-weight: 400;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  color: #33191b;
+}
+.refresh{
+  width: 152px;
+  height: 52px;
+  border: none;
+  color: #ef0e21;
+  cursor: pointer;
+  font-family: ubuntu;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.refresh:focus{
+  border: none;
+  outline: none;
+}
+.star{
+  max-height: 30px;
+}
+.left-content{
+  max-height: 20px;
+  display: flex;
+  align-items: center;
+}
+.right-content{
+  text-align: right;
+}
+.info{
+  padding-right:20px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgb(23, 8, 78);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Add responsive styles */
+@media (max-width: 1000px) {
+  .nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+    align-items: center;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .left-content,
+  .right-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
   }
-  to {
-    transform: rotate(360deg);
+  .footer{
+    position: fixed;
+    bottom: 2%;
   }
+  
 }
