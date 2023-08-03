@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Quizapp/static/css/main.5ca3bf7f.css",
-    "main.js": "/Quizapp/static/js/main.a9185dc5.js",
+    "main.css": "/Quizapp/static/css/main.2d4453cf.css",
+    "main.js": "/Quizapp/static/js/main.f4d5bec3.js",
     "static/js/787.82d36865.chunk.js": "/Quizapp/static/js/787.82d36865.chunk.js",
     "static/media/level-up.gif": "/Quizapp/static/media/level-up.d5179f3dbf36b8065009.gif",
     "static/media/ubuntu-latin-ext-500-normal.woff2": "/Quizapp/static/media/ubuntu-latin-ext-500-normal.46caae5f61be18653217.woff2",
@@ -38,12 +38,12 @@
     "static/media/karla-latin-ext-700-normal.woff2": "/Quizapp/static/media/karla-latin-ext-700-normal.d073cd1b0f8a30a2f619.woff2",
     "static/media/karla-latin-ext-400-normal.woff2": "/Quizapp/static/media/karla-latin-ext-400-normal.9638972f7e0d40eb6343.woff2",
     "index.html": "/Quizapp/index.html",
-    "main.5ca3bf7f.css.map": "/Quizapp/static/css/main.5ca3bf7f.css.map",
-    "main.a9185dc5.js.map": "/Quizapp/static/js/main.a9185dc5.js.map",
+    "main.2d4453cf.css.map": "/Quizapp/static/css/main.2d4453cf.css.map",
+    "main.f4d5bec3.js.map": "/Quizapp/static/js/main.f4d5bec3.js.map",
     "787.82d36865.chunk.js.map": "/Quizapp/static/js/787.82d36865.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ca3bf7f.css",
-    "static/js/main.a9185dc5.js"
+    "static/css/main.2d4453cf.css",
+    "static/js/main.f4d5bec3.js"
   ]
 }
