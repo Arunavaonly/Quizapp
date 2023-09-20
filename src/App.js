@@ -4,7 +4,8 @@ import "./App.css";
 import "@fontsource/karla/700.css";
 import "@fontsource/karla/400.css";
 import correct from "./correct.mp3";
-import levelUpGif from "./level-up.gif"
+import levelUpGif from "./level-up.gif";
+const he = require("he");
 
 // Function to shuffle an array in place
 function shuffleArray(array) {
@@ -28,87 +29,93 @@ function App() {
   const [answerSelected, setAnswerSelected] = useState(false);
   const [answeredQues, setAnsweredQues] = useState(0);
   const [paraContent, setParaContent] = useState("");
-  const[level, setLevel] = useState(1)
-  const[difficulty, setDifficulty] = useState("Easy")
+  const [level, setLevel] = useState(1);
+  const [difficulty, setDifficulty] = useState("Easy");
   const [levelUp, setLevelUp] = useState(false);
-  const[showLevelUpGif, setShowLevelUpGif] = useState(false);
-  const[type, setType] = useState("True/False")
-
-
+  const [showLevelUpGif, setShowLevelUpGif] = useState(false);
+  const [type, setType] = useState("True/False");
+  const [askedQuestions, setAskedQuestions] = useState([]);
+  const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
   useEffect(() => {
     async function fetchData(url) {
-  if (level ===1){
-    url = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean"
-  }
-  else if (level ===2){
-    url = "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple"
-    setDifficulty("Medium")
-    setType("Multiple Choice")
-  }
-  else{
-    url = "https://opentdb.com/api.php?amount=1&difficulty=hard"
-    setDifficulty("Hard")
-    setType("Any")
-  }
+      if (level === 1) {
+        url =
+          "https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean";
+      } else if (level === 2) {
+        url =
+          "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
+        setDifficulty("Medium");
+        setType("Multiple Choice");
+      } else {
+        url = "https://opentdb.com/api.php?amount=1&difficulty=hard";
+        setDifficulty("Hard");
+        setType("Any");
+      }
       try {
         const res = await fetch(url);
         const data = await res.json();
-        console.log("data fetched from" + url)
-        if (
-          data.results[0].question.includes("&quot") === true ||
-          data.results[0].question.includes("#") === true
-        ) {
-          fetchData();
-        } else {
+        const newQuestion = data.results[0].question.slice(0, 20);
+        setTimeout(() => {
+          if (askedQuestions.includes(newQuestion)) {
+            setQuizdata();
+            fetchData(url);
+            return;
+          }
+          if (askedQuestions.length < 200) {
+            setAskedQuestions([...askedQuestions, newQuestion]);
+          } else {
+            setAskedQuestions([]);
+          }
           setQuizdata(data.results);
-        }
-      
+        }, 200);
+
+        console.log(quizdata);
       } catch (err) {
-        console.error("Error fetching quiz data:", err);
+        console.log("Error fetching quiz data:", err);
       }
     }
 
     fetchData();
   }, [count, level]);
 
-  
   const handleClick = () => {
-    try{
+    try {
       setQues(quizdata[0].question);
-    setText("Next");
-    setCount((prevcount) => prevcount + 1);
-    setCorrectAnswer(quizdata[0].correct_answer);
-    // Combine incorrect and correct answers into a single array
-    const allAnswers = [
-      ...quizdata[0].incorrect_answers,
-      quizdata[0].correct_answer,
-    ];
+      setText("Next");
+      setCount((prevcount) => prevcount + 1);
+      setCorrectAnswer(quizdata[0].correct_answer);
+      // Combine incorrect and correct answers into a single array
+      const allAnswers = [
+        ...quizdata[0].incorrect_answers,
+        quizdata[0].correct_answer,
+      ];
 
-    // Shuffle the array
-    shuffleArray(allAnswers);
+      // Shuffle the array
+      shuffleArray(allAnswers);
 
-    // Set the first four shuffled answers to state variables
+      // Set the first four shuffled answers to state variables
 
-    setAnswers(allAnswers.slice(0, 4));
+      setAnswers(allAnswers.slice(0, 4));
 
-    setSelectedAnswer(null);
-    setAnswerSelected(false);
-    document.getElementById("question").style.outline = "none"
-    document.getElementById("para").style.display = "none";
+      setSelectedAnswer(null);
+      setAnswerSelected(false);
+      setNextButtonDisabled(true);
 
-    }
-    catch (err){
-      console.log(err)
-    }
+      document.getElementById("question").style.outline = "none";
+      document.getElementById("para").style.display = "none";
+      document.getElementById("skip").style.visibility = "visible";
     
+    } catch (err) {
+      console.log(err);
+    }
   };
   // function to blink the outline of question block for each click
-  const blink = ()=>{
-    setTimeout(()=>{
-      document.getElementById("question").style.outline = ""}, 200)
-
-  }
+  const blink = () => {
+    setTimeout(() => {
+      document.getElementById("question").style.outline = "";
+    }, 200);
+  };
 
   const checkAnswer = () => {
     if (selectedAnswer === correctAnswer) {
@@ -118,13 +125,11 @@ function App() {
       const audio = new Audio(correct);
       audio.play();
       setScore((prevscore) => prevscore + 1);
-      if (score +1 === 10) {
+      if (score + 1 === 10) {
         setLevelUp(true); // Set levelUp to true if the user levels up
       }
-  
-      
     } else {
-      setScore((prevscore) => prevscore -1)
+      setScore((prevscore) => prevscore - 1);
       setParaContent(
         `Incorrect Answer\nThe correct answer is ${correctAnswer}`
       );
@@ -140,35 +145,51 @@ function App() {
 
   const showAnswer = () => {
     setAnswerSelected(true);
+    setNextButtonDisabled(false);
     setAnsweredQues((prevcount) => prevcount + 1);
     document.getElementById("para").style.display = "block";
-
+    document.getElementById("btn").style.display = "block";
   };
   useEffect(() => {
     if (levelUp === true) {
-      setLevel(prevLevel => prevLevel + 1);
+      setLevel((prevLevel) => prevLevel + 1);
       setLevelUp(false); // Reset levelUp back to false after updating the level
-      setShowLevelUpGif(true)
-      setScore(0)
-      setTimeout(()=>{
-        setShowLevelUpGif(false)
-      },1000)
+      setShowLevelUpGif(true);
+      setScore(0);
+      setTimeout(() => {
+        setShowLevelUpGif(false);
+      }, 3000);
     }
   }, [levelUp]);
 
-  
-
-
+  const skip = () => {
+    //setNextButtonDisabled(false)
+    if (answerSelected === false) {
+      handleClick();
+      blink();
+    } else {
+      alert("Cannot skip ,please click 'Next' to continue");
+    }
+  };
 
   return (
     <div className="App">
-      <NavBar level ={level} difficulty = {difficulty} type ={type} />
+      <NavBar level={level} difficulty={difficulty} type={type} />
       <div className="center-div">
-        <header className="App-header">Quiz Master</header>
-        <button className="btn" type="button" onClick={()=>{
-          handleClick();
-          blink();
-        }}>
+        <header className="App-header" id="header">
+          Quiz Master
+        </header>
+        <button
+          className="btn"
+          id="btn"
+          type="button"
+          onClick={() => {
+            handleClick();
+            blink();
+            setNextButtonDisabled(true);
+          }}
+          disabled={nextButtonDisabled}
+        >
           {text}
         </button>
         <p className="score"> Player's Score: {score} </p>
@@ -176,8 +197,11 @@ function App() {
       </div>
       <div className="next-div">
         <b>
-          Question No {count}.<br />
-          <p className="question" id ="question">{ques}</p>
+          Question
+          <br />
+          <p className="question" id="question">
+            {he.decode(ques)}
+          </p>
         </b>
 
         <div className="last-div">
@@ -199,24 +223,37 @@ function App() {
                   : () => {
                       showAnswer();
                       setSelectedAnswer(answer);
+                      setNextButtonDisabled(false);
                     }
               }
             >
-              <b>{answer}</b>
+              <b>{he.decode(answer)}</b>
             </button>
           ))}
+          <button
+            type="button"
+            id="skip"
+            onClick={skip}
+            style={{ visibility: "hidden" }}
+          >
+          Skip Question
+          </button>
           <p className="para" id="para">
             {paraContent}
           </p>
         </div>
       </div>
-            {/* Render GIF overlay if showLevelUpOverlay is true */}
-            {showLevelUpGif && (
+      {/* Render GIF overlay if showLevelUpOverlay is true */}
+      {showLevelUpGif && (
         <div className="level-up-overlay">
           <img src={levelUpGif} alt="Level Up" />
         </div>
       )}
-      <footer className="footer"><small><b>Copyright &copy; by Arunava Kar arunavakaronly@gmail.com</b></small></footer>
+      <footer className="footer">
+        <small>
+          <b>Copyright &copy; by Arunava Kar arunavakaronly@gmail.com</b>
+        </small>
+      </footer>
     </div>
   );
 }

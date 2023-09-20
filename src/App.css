@@ -1,5 +1,5 @@
 *{
-  background-color: #b1bcd3;
+  background-color:rgb(240, 234, 234);
 }
 
 .center-div {
@@ -26,7 +26,7 @@
   width: 193px;
   height: 52px;
   border-radius: 15px;
-  background: #25347e;
+  background:rgb(169, 51, 116);
   color: #d0dde3;
   cursor: pointer;
   margin-top: 30px;
@@ -54,6 +54,8 @@
 }
 
 .question{
+  background-color:rgb(134, 129, 196);
+  color: whitesmoke;
   padding:30px;
   outline-width: 10px;
   outline-style: groove;
@@ -97,10 +99,6 @@
   z-index: 9999; /* Ensure it's on top of other content */
 }
 
-.level-up-overlay img {
-  width: 50%;
-  height: 50%;
-}
 .level{
   font-family: karla;
   font-weight: 400;
@@ -141,6 +139,7 @@
 }
 
 .footer {
+  background-color: #ef0e21;
   position: fixed;
   left: 0;
   bottom: 0;
