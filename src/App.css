@@ -52,6 +52,9 @@
   min-width: 90px;
   cursor: pointer;
 }
+#skip{
+  cursor: pointer;
+}
 
 .question{
   background-color:rgb(134, 129, 196);

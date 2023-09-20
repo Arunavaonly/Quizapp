@@ -70,7 +70,6 @@ function App() {
           setQuizdata(data.results);
         }, 200);
 
-        console.log(quizdata);
       } catch (err) {
         console.log("Error fetching quiz data:", err);
       }
@@ -163,12 +162,11 @@ function App() {
   }, [levelUp]);
 
   const skip = () => {
-    //setNextButtonDisabled(false)
     if (answerSelected === false) {
       handleClick();
       blink();
     } else {
-      alert("Cannot skip ,please click 'Next' to continue");
+      alert("Can't skip ,click 'Next' to continue");
     }
   };
 
