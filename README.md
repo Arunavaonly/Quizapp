@@ -1,5 +1,7 @@
-The app is live on the url https://arunavaonly.github.io/Quizapp/
-This GitHub repository contains a quiz application developed using the React framework. The app fetches quiz questions from an external API and provides an interactive quiz experience for users. Key features include:
+This GitHub repository contains a quiz application developed using the React framework. The app fetches quiz questions from an external API and provides an interactive quiz experience for users. To see the live app, click on the following url https://arunavaonly.github.io/Quizapp/
+
+
+Key features include:
 
 Multiple Difficulty Levels: The app offers three difficulty levels - Easy, Medium, and Hard.
 Question Types: Depending on the selected difficulty level, questions can be in the format of True/False or Multiple Choice.
