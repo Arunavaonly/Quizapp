@@ -13,6 +13,7 @@ Key features include:
 8. Skip Questions: Players have the option to skip a question.
    
 Usage
+
 To run the app locally, follow these steps:
 
 1. Clone the repository to your local machine.
