@@ -3,24 +3,29 @@ This GitHub repository contains a quiz application developed using the React fra
 
 Key features include:
 
-Multiple Difficulty Levels: The app offers three difficulty levels - Easy, Medium, and Hard.
-Question Types: Depending on the selected difficulty level, questions can be in the format of True/False or Multiple Choice.
-Dynamic Question Loading: Questions are fetched from an external API based on the selected difficulty level.
-Randomized Answers: The answers to each question are shuffled for an engaging user experience.
-Score Tracking: The app keeps track of the player's score as they progress through the quiz.
-Level Up: Upon reaching a score of 10, the player advances to the next level.
-Visual Feedback: The app provides visual cues for correct and incorrect answers.
-Skip Questions: Players have the option to skip a question.
+1. Multiple Difficulty Levels: The app offers three difficulty levels - Easy, Medium, and Hard.
+2. Question Types: Depending on the selected difficulty level, questions can be in the format of True/False or Multiple Choice.
+3. Dynamic Question Loading: Questions are fetched from an external API based on the selected difficulty level.
+4. Randomized Answers: The answers to each question are shuffled for an engaging user experience.
+5. Score Tracking: The app keeps track of the player's score as they progress through the quiz.
+6. Level Up: Upon reaching a score of 10, the player advances to the next level.
+7. Visual Feedback: The app provides visual cues for correct and incorrect answers.
+8. Skip Questions: Players have the option to skip a question.
+   
 Usage
 To run the app locally, follow these steps:
 
-Clone the repository to your local machine.
-Install dependencies using npm install.
-Start the app with npm start.
-Access the app at http://localhost:3000.
+1. Clone the repository to your local machine.
+2. Install dependencies using npm install.
+3. Start the app with npm start.
+4. Access the app at http://localhost:3000.
+
 Dependencies
+
 React: A JavaScript library for building user interfaces.
+
 Fontsource: Provides easy access to various fonts for styling.
+
 he: A library for HTML entity encoding/decoding.
 
 Credits
