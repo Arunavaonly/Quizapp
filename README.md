@@ -12,7 +12,7 @@ Key features include:
 7. Visual Feedback: The app provides visual cues for correct and incorrect answers.
 8. Skip Questions: Players have the option to skip a question.
    
-Usage
+Usage:
 
 To run the app locally, follow these steps:
 
@@ -21,7 +21,7 @@ To run the app locally, follow these steps:
 3. Start the app with npm start.
 4. Access the app at http://localhost:3000.
 
-Dependencies
+Dependencies:
 
 React: A JavaScript library for building user interfaces.
 
@@ -29,7 +29,7 @@ Fontsource: Provides easy access to various fonts for styling.
 
 he: A library for HTML entity encoding/decoding.
 
-Credits
+Credits:
 This app was developed by Arunava Kar (arunavakaronly@gmail.com). For additional information, feel free to contact the author directly.
 
 
